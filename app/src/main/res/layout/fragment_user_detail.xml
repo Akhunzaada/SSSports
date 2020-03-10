@@ -1,0 +1,99 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="com.sssports.app.users.data.User"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/margin_large">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            app:imageFromUrl="@{user.picture.medium}"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/colorPrimary"
+            android:layout_marginTop="@dimen/margin_large"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="1:1" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name.toString()}"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:layout_marginTop="@dimen/margin_normal"
+            app:layout_constraintTop_toBottomOf="@id/image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="John Doe"/>
+
+        <TextView
+            android:id="@+id/gender_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/gender_and_age, user.gender, user.dob.age)}"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Male | 25"/>
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/id_title, user.id.toString())}"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:layout_marginTop="@dimen/margin_large"
+            app:layout_constraintTop_toBottomOf="@id/gender_age"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="CPR 1234-123"/>
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/phone_title, user.phone)}"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/id"
+            app:layout_constraintStart_toStartOf="@id/id"
+            tools:text="123456"/>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/email_title, user.email)}"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/phone"
+            app:layout_constraintStart_toStartOf="@id/phone"
+            tools:text="john.doe@gmail.com"/>
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/address_title, user.location.toString())}"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/email"
+            app:layout_constraintStart_toStartOf="@id/email"
+            tools:text="Abc 123, xyz Street"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

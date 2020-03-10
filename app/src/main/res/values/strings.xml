@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name" translatable="false">SSSports</string>
+
+    <string name="users_title">All Users</string>
+    <string name="user_detail_title">User Detail</string>
+
+    <string name="id_title">ID: %s</string>
+    <string name="email_title">Email: %s</string>
+    <string name="phone_title">Phone: %s</string>
+    <string name="address_title">Address: %s</string>
+    <string name="gender_and_age">%1$s | %2$s</string>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/users_fragment">
+
+    <fragment
+        android:id="@+id/users_fragment"
+        android:name="com.sssports.app.users.ui.UsersFragment"
+        android:label="@string/users_title"
+        tools:layout="@layout/fragment_users">
+
+        <action
+            android:id="@+id/action_to_user_detail_fragment"
+            app:destination="@id/user_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/user_detail_fragment"
+        android:name="com.sssports.app.users.ui.UserDetailFragment"
+        android:label="@string/user_detail_title"
+        tools:layout="@layout/fragment_user_detail">
+
+        <argument
+            android:name="user"
+            app:argType="com.sssports.app.users.data.User" />
+    </fragment>
+
+</navigation>
